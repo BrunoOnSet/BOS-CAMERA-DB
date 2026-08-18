@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "databaseVersion": "1.1",
+  "databaseVersion": "1.2",
   "updated": "2026-08-18",
   "cameras": [
     {
@@ -106,6 +106,40 @@
                 "note": "Long GOP · preset 4:2:2 10 bit / débit haut"
               }
             }
+          }
+        }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "slog3",
+        "profiles": {
+          "slog3": {
+            "label": "S-Log3 / Cine EI",
+            "baseValues": [
+              800,
+              2500
+            ],
+            "defaultValue": 800,
+            "baseType": "dualBaseISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "sources": [
+              "https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000888939.html"
+            ]
+          },
+          "scinetone": {
+            "label": "S-Cinetone",
+            "baseValues": [],
+            "defaultValue": null,
+            "baseType": "notPublished",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "note": "Sony ne publie pas de Base ISO Cine EI pour S-Cinetone ; ne pas surligner un ISO natif par déduction.",
+            "sources": [
+              "https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000876510.html"
+            ]
           }
         }
       }
@@ -215,6 +249,40 @@
             }
           }
         }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "slog3",
+        "profiles": {
+          "slog3": {
+            "label": "S-Log3 / Cine EI",
+            "baseValues": [
+              800,
+              12800
+            ],
+            "defaultValue": 800,
+            "baseType": "dualBaseISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "sources": [
+              "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000888939.html"
+            ]
+          },
+          "scinetone": {
+            "label": "S-Cinetone",
+            "baseValues": [],
+            "defaultValue": null,
+            "baseType": "notPublished",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "note": "Ne pas déduire les Base ISO S-Log3 pour S-Cinetone.",
+            "sources": [
+              "https://www.sony.fr/electronics/appareils-photo-a-objectifs-interchangeables/ilme-fx3a"
+            ]
+          }
+        }
       }
     },
     {
@@ -322,6 +390,49 @@
             }
           }
         }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "slog3",
+        "profiles": {
+          "slog3": {
+            "label": "S-Log3 / Cine EI / Flexible ISO",
+            "baseValues": [
+              800,
+              4000,
+              12800
+            ],
+            "defaultValue": 800,
+            "baseType": "multiBaseISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "specialModes": [
+              {
+                "id": "iso800DualGain",
+                "label": "ISO 800 (Dual Gain)",
+                "value": 800,
+                "type": "dualGain"
+              }
+            ],
+            "sources": [
+              "https://helpguide.sony.net/ilc/2630/v1/en/contents/base_iso.html"
+            ]
+          },
+          "scinetone": {
+            "label": "S-Cinetone",
+            "baseValues": [],
+            "defaultValue": null,
+            "baseType": "notPublished",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "note": "S-Cinetone est disponible en mode Custom ; les valeurs Base ISO du mode Log ne doivent pas être transposées automatiquement.",
+            "sources": [
+              "https://helpguide.sony.net/ilc/2630/v1/en/contents/paint_look.html"
+            ]
+          }
+        }
       }
     },
     {
@@ -425,6 +536,40 @@
             }
           }
         }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "slog3",
+        "profiles": {
+          "slog3": {
+            "label": "S-Log3 / Cine EI",
+            "baseValues": [
+              800,
+              12800
+            ],
+            "defaultValue": 800,
+            "baseType": "dualBaseISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "sources": [
+              "https://pro.sony/bp_BR/products/handheld-camcorders/ilme-fx6"
+            ]
+          },
+          "scinetone": {
+            "label": "S-Cinetone",
+            "baseValues": [],
+            "defaultValue": null,
+            "baseType": "notPublished",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "note": "Le second Base ISO 12 800 est documenté par Sony pour S-Log3 ; ne pas le transposer à S-Cinetone sans source dédiée.",
+            "sources": [
+              "https://pro.sony/en_GB/filmmaking/filmmaking-stories/ilme-fx6-wilderness-bts"
+            ]
+          }
+        }
       }
     },
     {
@@ -437,6 +582,32 @@
         "label": "Vista Vision",
         "cocMm": 0.033,
         "cropToFF": 0.88
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "ipp2",
+        "profiles": {
+          "ipp2": {
+            "label": "IPP2 / Log3G10",
+            "baseValues": [],
+            "referenceValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "referenceOnly",
+            "isoRange": [
+              250,
+              12800
+            ],
+            "gain": {
+              "type": "metadata"
+            },
+            "note": "RED décrit ISO 800 comme valeur ISO par défaut et point de départ recommandé. L’ISO R3D est un réglage de monitoring/métadonnée ajustable en post, pas un Dual Native ISO.",
+            "sources": [
+              "https://docs.red.com/955-0199/955-0199_V1.3_Rev-B_RED_PS_V-RAPTOR_8K_VV_Operation_Guide/Content/4_Menus/a_Image_LUT/02_ISO.htm"
+            ]
+          }
+        }
       }
     },
     {
@@ -538,6 +709,30 @@
               "60",
               "75",
               "90"
+            ]
+          }
+        }
+      },
+      "exposure": {
+        "unit": "EI",
+        "defaultProfile": "logc3",
+        "profiles": {
+          "logc3": {
+            "label": "ARRI Log C3",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "baseSensitivity",
+            "eiRange": [
+              160,
+              3200
+            ],
+            "gain": {
+              "type": "ei"
+            },
+            "sources": [
+              "https://www.arri.com/en/cine-systems/cine-cameras/alexa-mini-lf"
             ]
           }
         }
@@ -677,6 +872,39 @@
               "60",
               "100",
               "120"
+            ]
+          }
+        }
+      },
+      "exposure": {
+        "unit": "EI",
+        "defaultProfile": "logc4",
+        "profiles": {
+          "logc4": {
+            "label": "ARRI LogC4 / REVEAL",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "baseSensitivity",
+            "eiRange": [
+              160,
+              6400
+            ],
+            "gain": {
+              "type": "ei"
+            },
+            "specialModes": [
+              {
+                "id": "enhancedSensitivity",
+                "label": "Enhanced Sensitivity",
+                "type": "enhancedSensitivity"
+              }
+            ],
+            "note": "EI 800 reste la sensibilité de base ALEV4 ; Enhanced Sensitivity améliore le bruit en basse lumière sans être traité ici comme un second ISO natif.",
+            "sources": [
+              "https://www.arri.com/en/cine-systems/cine-cameras/legacy-cine-cameras/alexa-35",
+              "https://www.arri.com/en/learn-help/learn-help-camera-system/image-science/hdr-faq"
             ]
           }
         }
@@ -871,6 +1099,27 @@
             }
           }
         }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "bmfilm5",
+        "profiles": {
+          "bmfilm5": {
+            "label": "Blackmagic Film Gen 5",
+            "baseValues": [
+              400,
+              3200
+            ],
+            "defaultValue": 400,
+            "baseType": "dualNativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "sources": [
+              "https://www.blackmagicdesign.com/products/blackmagicpocketcinemacamera"
+            ]
+          }
+        }
       }
     },
     {
@@ -1046,6 +1295,27 @@
                 "note": "ProRes · débit cible VBR"
               }
             }
+          }
+        }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "bmfilm5",
+        "profiles": {
+          "bmfilm5": {
+            "label": "Blackmagic Film Gen 5",
+            "baseValues": [
+              400,
+              3200
+            ],
+            "defaultValue": 400,
+            "baseType": "dualNativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "sources": [
+              "https://www.blackmagicdesign.com/products/blackmagicpocketcinemacamera/techspecs"
+            ]
           }
         }
       }
@@ -1243,6 +1513,27 @@
             }
           }
         }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "bmfilm",
+        "profiles": {
+          "bmfilm": {
+            "label": "Blackmagic Film",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "nativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "note": "La 4.6K G2 n’est pas traitée comme dual-native dans BOS. ISO 800 est la référence native retenue.",
+            "sources": [
+              "https://www.blackmagicdesign.com/products/blackmagicursaminipro/gallery"
+            ]
+          }
+        }
       }
     },
     {
@@ -1415,6 +1706,26 @@
             }
           }
         }
+      },
+      "exposure": {
+        "unit": "ISO",
+        "defaultProfile": "bmfilm5",
+        "profiles": {
+          "bmfilm5": {
+            "label": "Blackmagic Film Gen 5",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "nativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "sources": [
+              "https://www.blackmagicdesign.com/products/blackmagicursaminipro"
+            ]
+          }
+        }
       }
     },
     {
@@ -1478,5 +1789,11 @@
       }
     }
   ],
-  "notes": "V1.1: profils MEDIA centralisés + Blackmagic ajoutées à la liste commune."
+  "notes": [
+    "V1.2 : ajout des données d’exposition aux 11 caméras réelles de la base.",
+    "Les capteurs génériques ff/s35/apsc/mft/oneinch n’ont volontairement pas de bloc exposure.",
+    "baseType distingue ISO natif/base EI, dual/multi-base et simple ISO de référence (RED).",
+    "Ne pas convertir ISO↔dB avec une formule universelle : utiliser gain.type et les données spécifiques caméra.",
+    "V1.1: profils MEDIA centralisés + Blackmagic ajoutées à la liste commune."
+  ]
 }
