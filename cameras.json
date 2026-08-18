@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "databaseVersion": "1.2",
+  "databaseVersion": "1.3",
   "updated": "2026-08-18",
   "cameras": [
     {
@@ -130,15 +130,25 @@
           },
           "scinetone": {
             "label": "S-Cinetone",
-            "baseValues": [],
-            "defaultValue": null,
-            "baseType": "notPublished",
+            "baseValues": [
+              125,
+              400
+            ],
+            "defaultValue": 125,
+            "baseType": "dualGainReference",
             "gain": {
               "type": "cameraSpecific"
             },
-            "note": "Sony ne publie pas de Base ISO Cine EI pour S-Cinetone ; ne pas surligner un ISO natif par déduction.",
+            "note": "S-Cinetone/PP11 : ISO 125 est la valeur ISO par défaut publiée par Sony. ISO 400 est conservé comme repère de bascule de gain haute sensibilité utilisé par BOS/EXPO. Sony ne présente pas 125/400 comme deux Base ISO Cine EI ; les distinguer des Base ISO S-Log3 800/2500.",
             "sources": [
+              "https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000888857.html",
               "https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000876510.html"
+            ],
+            "publishedBaseValues": [
+              125
+            ],
+            "operationalGainSwitchValues": [
+              400
             ]
           }
         }
@@ -271,15 +281,25 @@
           },
           "scinetone": {
             "label": "S-Cinetone",
-            "baseValues": [],
-            "defaultValue": null,
-            "baseType": "notPublished",
+            "baseValues": [
+              100,
+              2000
+            ],
+            "defaultValue": 100,
+            "baseType": "dualGainReference",
             "gain": {
               "type": "cameraSpecific"
             },
-            "note": "Ne pas déduire les Base ISO S-Log3 pour S-Cinetone.",
+            "note": "S-Cinetone/PP11 : ISO 100 est la valeur ISO par défaut publiée par Sony. ISO 2000 est conservé comme repère de bascule de gain haute sensibilité utilisé par BOS/EXPO. Sony ne présente pas 100/2000 comme deux Base ISO Cine EI ; les distinguer des Base ISO S-Log3 800/12800.",
             "sources": [
-              "https://www.sony.fr/electronics/appareils-photo-a-objectifs-interchangeables/ilme-fx3a"
+              "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000888852.html",
+              "https://helpguide.sony.net/ilc/2035/v1/en/contents/TP1000275664.html"
+            ],
+            "publishedBaseValues": [
+              100
+            ],
+            "operationalGainSwitchValues": [
+              2000
             ]
           }
         }
@@ -421,15 +441,33 @@
           },
           "scinetone": {
             "label": "S-Cinetone",
-            "baseValues": [],
-            "defaultValue": null,
-            "baseType": "notPublished",
+            "baseValues": [
+              320,
+              1600,
+              5000
+            ],
+            "defaultValue": 320,
+            "baseType": "multiBaseSensitivity",
             "gain": {
               "type": "cameraSpecific"
             },
-            "note": "S-Cinetone est disponible en mode Custom ; les valeurs Base ISO du mode Log ne doivent pas être transposées automatiquement.",
+            "note": "S-Cinetone en mode Custom SDR : Sony documente Base Sensitivity Low = ISO 320, Mid = ISO 1600 et High = ISO 5000. Le mode Low (Dual Gain) utilise également ISO 320. Ces valeurs sont distinctes des Base ISO Log 800/4000/12800.",
             "sources": [
-              "https://helpguide.sony.net/ilc/2630/v1/en/contents/paint_look.html"
+              "https://helpguide.sony.net/ilc/2630/v1/en/contents/paint_look.html",
+              "https://helpguide.sony.net/ilc/2630/v1/en/print.pdf"
+            ],
+            "publishedBaseValues": [
+              320,
+              1600,
+              5000
+            ],
+            "specialModes": [
+              {
+                "id": "iso320LowDualGain",
+                "label": "ISO 320 (Low Dual Gain)",
+                "value": 320,
+                "type": "dualGain"
+              }
             ]
           }
         }
@@ -558,15 +596,22 @@
           },
           "scinetone": {
             "label": "S-Cinetone",
-            "baseValues": [],
-            "defaultValue": null,
-            "baseType": "notPublished",
+            "baseValues": [
+              320,
+              5000
+            ],
+            "defaultValue": 320,
+            "baseType": "dualBaseSensitivity",
             "gain": {
               "type": "cameraSpecific"
             },
-            "note": "Le second Base ISO 12 800 est documenté par Sony pour S-Log3 ; ne pas le transposer à S-Cinetone sans source dédiée.",
+            "note": "S-Cinetone en mode Custom SDR : Sony documente Base Sensitivity Low = ISO 320 et High = ISO 5000. Ce sont des sensibilités de base Custom, distinctes des Base ISO S-Log3 800/12800.",
             "sources": [
-              "https://pro.sony/en_GB/filmmaking/filmmaking-stories/ilme-fx6-wilderness-bts"
+              "https://www.sony.com/electronics/support/res/manuals/5026/b901aadf2abc305696e120a05920b63d/50262277M.pdf"
+            ],
+            "publishedBaseValues": [
+              320,
+              5000
             ]
           }
         }
@@ -1790,7 +1835,9 @@
     }
   ],
   "notes": [
-    "V1.2 : ajout des données d’exposition aux 11 caméras réelles de la base.",
+    "V1.3 : restauration et formalisation des sensibilités / repères de gain S-Cinetone pour FX30, FX3, FX5 et FX6.",
+    "FX5/FX6 : valeurs S-Cinetone issues des Base Sensitivity Custom SDR documentées par Sony.",
+    "FX30/FX3 : la valeur basse est documentée comme ISO par défaut Sony ; la valeur haute est conservée comme repère de bascule de gain BOS/EXPO et n’est pas présentée comme Base ISO Cine EI publiée par Sony.",
     "Les capteurs génériques ff/s35/apsc/mft/oneinch n’ont volontairement pas de bloc exposure.",
     "baseType distingue ISO natif/base EI, dual/multi-base et simple ISO de référence (RED).",
     "Ne pas convertir ISO↔dB avec une formule universelle : utiliser gain.type et les données spécifiques caméra.",

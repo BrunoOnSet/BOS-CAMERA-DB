@@ -1,32 +1,14 @@
-# BOS Camera Database — v1.2
+# BOS CAMERA DB V1.3
 
-Base caméra commune à l'écosystème BOS.
+Mise à jour du 18 août 2026.
 
-## V1.2 — Exposition
-- Ajout d'un bloc `exposure` aux 11 caméras réelles de la base.
-- Sony : FX30 800/2500 ; FX3 800/12800 ; FX5 800/4000/12800 + ISO 800 Dual Gain ; FX6 800/12800 en S-Log3/Cine EI.
-- Blackmagic : Pocket 4K/6K 400/3200 ; URSA Mini Pro 4.6K G2 800 ; URSA Mini Pro 12K 800.
-- ARRI : ALEXA Mini LF EI 800 (EI 160–3200) ; ALEXA 35 EI 800 (EI 160–6400, Enhanced Sensitivity signalé séparément).
-- RED V-RAPTOR VV : ISO 800 est enregistré comme valeur de référence/par défaut, **pas** comme Dual Native ISO.
-- Les profils sans Base ISO officiellement publiée (notamment S-Cinetone) restent marqués `notPublished` afin de ne pas inventer de valeur.
-- Les capteurs génériques (Full Frame, S35, APS-C, MFT, 1 pouce) n'ont pas de bloc `exposure`.
+## Correction S-Cinetone
 
-### Convention du bloc `exposure`
-- `unit`: `ISO` ou `EI`.
-- `defaultProfile`: profil proposé par défaut par EXPO.
-- `profiles.*.baseValues`: vrais ISO/EI de base à surligner uniquement si `baseType` le justifie.
-- `referenceValues`: valeur de travail recommandée mais non native (ex. RED).
-- `baseType`: `dualBaseISO`, `multiBaseISO`, `dualNativeISO`, `nativeISO`, `baseSensitivity`, `referenceOnly` ou `notPublished`.
-- `gain.type`: évite toute conversion ISO/dB générique non documentée.
-- `specialModes`: modes spécifiques qui ne doivent pas être aplatis en simple ISO natif (FX5 Dual Gain, ALEXA 35 Enhanced Sensitivity).
+- Sony FX30 : repères S-Cinetone 125 / 400 ISO. ISO 125 est le réglage ISO par défaut documenté par Sony ; 400 est conservé comme repère de bascule haute sensibilité BOS/EXPO.
+- Sony FX3 : repères S-Cinetone 100 / 2000 ISO. ISO 100 est le réglage ISO par défaut documenté par Sony ; 2000 est conservé comme repère de bascule haute sensibilité BOS/EXPO.
+- Sony FX6 : Base Sensitivity S-Cinetone documentées par Sony : Low 320 / High 5000 ISO.
+- Sony FX5 : Base Sensitivity S-Cinetone documentées par Sony : Low 320 / Mid 1600 / High 5000 ISO, plus Low Dual Gain à ISO 320.
 
-## V1.1
-- Ajout des 4 caméras Blackmagic déjà présentes dans MEDIA.
-- Ajout d'un bloc `media` dans les caméras disposant de presets d'enregistrement.
-- FRAME continue de lire `sensorWidthMm`.
-- DOF continue de lire `dof`.
-- MEDIA lit maintenant `media.modes`.
+Les valeurs S-Cinetone ne sont pas assimilées automatiquement aux Base ISO Cine EI S-Log3. Le champ `baseType` indique leur nature.
 
-## Mise à jour
-Remplacer uniquement `cameras.json` dans le dépôt GitHub `BrunoSetTools/BOS-CAMERA-DB`.
-Les applications gardent un fallback local et la dernière base récupérée pour fonctionner hors ligne.
+Toutes les autres données V1.2 (DOF, MEDIA, exposition ARRI/RED/Blackmagic, etc.) sont conservées.
