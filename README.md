@@ -1,19 +1,14 @@
-# BOS CAMERA DB
+# BOS Camera Database — v1.1
 
-Base caméra centrale de **Bruno OnSet / BOS**.
+Base caméra commune à l'écosystème BOS.
 
-## Principe
-FRAME et DOF chargent la même liste depuis :
+## V1.1
+- Ajout des 4 caméras Blackmagic déjà présentes dans MEDIA.
+- Ajout d'un bloc `media` dans les caméras disposant de presets d'enregistrement.
+- FRAME continue de lire `sensorWidthMm`.
+- DOF continue de lire `dof`.
+- MEDIA lit maintenant `media.modes`.
 
-`https://raw.githubusercontent.com/BrunoSetTools/BOS-CAMERA-DB/main/cameras.json`
-
-Pour ajouter ou modifier une caméra, éditer uniquement `cameras.json`.
-
-Les apps conservent une copie locale de la dernière base chargée et disposent aussi d'un fallback embarqué.
-
-## Repo GitHub attendu
-Nom du dépôt : **BOS-CAMERA-DB**
-Branche : **main**
-Fichier à la racine : **cameras.json**
-
-Il n'est pas nécessaire d'activer GitHub Pages : l'accès se fait via `raw.githubusercontent.com`.
+## Mise à jour
+Remplacer uniquement `cameras.json` dans le dépôt GitHub `BrunoSetTools/BOS-CAMERA-DB`.
+Les applications gardent un fallback local et la dernière base récupérée pour fonctionner hors ligne.
