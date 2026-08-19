@@ -1,14 +1,16 @@
-# BOS CAMERA DB V1.3
+# BOS CAMERA DB V1.4
 
-Mise à jour du 18 août 2026.
+Mise à jour du 19 août 2026.
 
-## Correction S-Cinetone
+## Ajout Sony α7S III
 
-- Sony FX30 : repères S-Cinetone 125 / 400 ISO. ISO 125 est le réglage ISO par défaut documenté par Sony ; 400 est conservé comme repère de bascule haute sensibilité BOS/EXPO.
-- Sony FX3 : repères S-Cinetone 100 / 2000 ISO. ISO 100 est le réglage ISO par défaut documenté par Sony ; 2000 est conservé comme repère de bascule haute sensibilité BOS/EXPO.
-- Sony FX6 : Base Sensitivity S-Cinetone documentées par Sony : Low 320 / High 5000 ISO.
-- Sony FX5 : Base Sensitivity S-Cinetone documentées par Sony : Low 320 / Mid 1600 / High 5000 ISO, plus Low Dual Gain à ISO 320.
+- Capteur : Full Frame 35,6 × 23,8 mm.
+- MEDIA : XAVC S-I / XAVC S / XAVC HS en UHD 4K, XAVC S-I / XAVC S en HD, plus DCI 4K 24.00p via licence/firmware compatible.
+- S-Log3 : ISO 640 est la limite basse standard publiée par Sony. ISO 12800 est conservé comme repère opérationnel de bascule haute sensibilité BOS/EXPO, sans le présenter comme un second Base ISO Cine EI officiellement publié pour l’α7S III.
+- S-Cinetone : repères BOS/EXPO 100 / 2000 ISO, avec le même statut de repères opérationnels que pour la FX3.
 
-Les valeurs S-Cinetone ne sont pas assimilées automatiquement aux Base ISO Cine EI S-Log3. Le champ `baseType` indique leur nature.
+## Différence importante avec la FX3
 
-Toutes les autres données V1.2 (DOF, MEDIA, exposition ARRI/RED/Blackmagic, etc.) sont conservées.
+La FX3 dispose d’un mode Cine EI dans lequel Sony documente explicitement deux Base ISO : 800 / 12800. L’α7S III fonctionne en Log/Flexible ISO et Sony documente une limite basse standard de 640 ISO en S-Log3 ; il ne faut donc pas recopier simplement le couple 800 / 12800 de la FX3.
+
+Toutes les données de la V1.3 sont conservées.
