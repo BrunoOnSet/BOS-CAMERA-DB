@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "databaseVersion": "1.4",
-  "updated": "2026-08-19",
+  "databaseVersion": "1.5",
+  "updated": "2026-08-20",
   "cameras": [
     {
       "id": "fx30",
@@ -1298,9 +1298,12 @@
       "exposure": {
         "unit": "ISO",
         "defaultProfile": "bmfilm5",
+        "profileType": "dynamicRange",
+        "profileSensitivityRelationship": "sharedNativeISO",
+        "note": "Video, Extended Video et Film Gen 5 utilisent les mêmes sensibilités natives du capteur. Le profil modifie le rendu/dynamic range, pas les ISO natifs.",
         "profiles": {
-          "bmfilm5": {
-            "label": "Blackmagic Film Gen 5",
+          "video": {
+            "label": "Video",
             "baseValues": [
               400,
               3200
@@ -1310,8 +1313,41 @@
             "gain": {
               "type": "cameraSpecific"
             },
+            "colorScience": "Gen 5",
             "sources": [
-              "https://www.blackmagicdesign.com/products/blackmagicpocketcinemacamera"
+              "https://documents.blackmagicdesign.com/fr/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf"
+            ]
+          },
+          "extendedvideo": {
+            "label": "Extended Video",
+            "baseValues": [
+              400,
+              3200
+            ],
+            "defaultValue": 400,
+            "baseType": "dualNativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 5",
+            "sources": [
+              "https://documents.blackmagicdesign.com/fr/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf"
+            ]
+          },
+          "bmfilm5": {
+            "label": "Film Gen 5",
+            "baseValues": [
+              400,
+              3200
+            ],
+            "defaultValue": 400,
+            "baseType": "dualNativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 5",
+            "sources": [
+              "https://documents.blackmagicdesign.com/fr/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf"
             ]
           }
         }
@@ -1496,9 +1532,12 @@
       "exposure": {
         "unit": "ISO",
         "defaultProfile": "bmfilm5",
+        "profileType": "dynamicRange",
+        "profileSensitivityRelationship": "sharedNativeISO",
+        "note": "Video, Extended Video et Film Gen 5 utilisent les mêmes sensibilités natives du capteur. Le profil modifie le rendu/dynamic range, pas les ISO natifs.",
         "profiles": {
-          "bmfilm5": {
-            "label": "Blackmagic Film Gen 5",
+          "video": {
+            "label": "Video",
             "baseValues": [
               400,
               3200
@@ -1508,8 +1547,41 @@
             "gain": {
               "type": "cameraSpecific"
             },
+            "colorScience": "Gen 5",
             "sources": [
-              "https://www.blackmagicdesign.com/products/blackmagicpocketcinemacamera/techspecs"
+              "https://documents.blackmagicdesign.com/fr/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf"
+            ]
+          },
+          "extendedvideo": {
+            "label": "Extended Video",
+            "baseValues": [
+              400,
+              3200
+            ],
+            "defaultValue": 400,
+            "baseType": "dualNativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 5",
+            "sources": [
+              "https://documents.blackmagicdesign.com/fr/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf"
+            ]
+          },
+          "bmfilm5": {
+            "label": "Film Gen 5",
+            "baseValues": [
+              400,
+              3200
+            ],
+            "defaultValue": 400,
+            "baseType": "dualNativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 5",
+            "sources": [
+              "https://documents.blackmagicdesign.com/fr/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf"
             ]
           }
         }
@@ -1712,9 +1784,12 @@
       "exposure": {
         "unit": "ISO",
         "defaultProfile": "bmfilm",
+        "profileType": "dynamicRange",
+        "profileSensitivityRelationship": "sharedNativeISO",
+        "note": "Video, Extended Video et Film utilisent la même sensibilité native de référence. Sur la 4.6K G2, le profil Film reste identifié comme Gen 4 dans BOS ; ne pas l’étiqueter Film Gen 5 natif.",
         "profiles": {
-          "bmfilm": {
-            "label": "Blackmagic Film",
+          "video": {
+            "label": "Video",
             "baseValues": [
               800
             ],
@@ -1723,10 +1798,43 @@
             "gain": {
               "type": "cameraSpecific"
             },
-            "note": "La 4.6K G2 n’est pas traitée comme dual-native dans BOS. ISO 800 est la référence native retenue.",
+            "colorScience": "Gen 4",
             "sources": [
-              "https://www.blackmagicdesign.com/products/blackmagicursaminipro/gallery"
-            ]
+              "https://documents.blackmagicdesign.com/UserManuals/BlackmagicURSAMiniManual.pdf"
+            ],
+            "note": "La 4.6K G2 n’est pas traitée comme dual-native dans BOS. ISO 800 est la référence native retenue."
+          },
+          "extendedvideo": {
+            "label": "Extended Video",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "nativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 4",
+            "sources": [
+              "https://documents.blackmagicdesign.com/UserManuals/BlackmagicURSAMiniManual.pdf"
+            ],
+            "note": "La 4.6K G2 n’est pas traitée comme dual-native dans BOS. ISO 800 est la référence native retenue."
+          },
+          "bmfilm": {
+            "label": "Film",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "nativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 4",
+            "sources": [
+              "https://documents.blackmagicdesign.com/UserManuals/BlackmagicURSAMiniManual.pdf"
+            ],
+            "note": "La 4.6K G2 n’est pas traitée comme dual-native dans BOS. ISO 800 est la référence native retenue."
           }
         }
       }
@@ -1905,9 +2013,12 @@
       "exposure": {
         "unit": "ISO",
         "defaultProfile": "bmfilm5",
+        "profileType": "dynamicRange",
+        "profileSensitivityRelationship": "sharedNativeISO",
+        "note": "Video, Extended Video et Film Gen 5 utilisent la même sensibilité native de référence du capteur. Le profil modifie le rendu/dynamic range.",
         "profiles": {
-          "bmfilm5": {
-            "label": "Blackmagic Film Gen 5",
+          "video": {
+            "label": "Video",
             "baseValues": [
               800
             ],
@@ -1916,8 +2027,39 @@
             "gain": {
               "type": "cameraSpecific"
             },
+            "colorScience": "Gen 5",
             "sources": [
-              "https://www.blackmagicdesign.com/products/blackmagicursaminipro"
+              "https://documents.blackmagicdesign.com/UserManuals/BlackmagicURSAMiniManual.pdf"
+            ]
+          },
+          "extendedvideo": {
+            "label": "Extended Video",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "nativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 5",
+            "sources": [
+              "https://documents.blackmagicdesign.com/UserManuals/BlackmagicURSAMiniManual.pdf"
+            ]
+          },
+          "bmfilm5": {
+            "label": "Film Gen 5",
+            "baseValues": [
+              800
+            ],
+            "defaultValue": 800,
+            "baseType": "nativeISO",
+            "gain": {
+              "type": "cameraSpecific"
+            },
+            "colorScience": "Gen 5",
+            "sources": [
+              "https://documents.blackmagicdesign.com/UserManuals/BlackmagicURSAMiniManual.pdf"
             ]
           }
         }
@@ -1994,6 +2136,7 @@
     "Les capteurs génériques ff/s35/apsc/mft/oneinch n’ont volontairement pas de bloc exposure.",
     "baseType distingue ISO natif/base EI, dual/multi-base et simple ISO de référence (RED).",
     "Ne pas convertir ISO↔dB avec une formule universelle : utiliser gain.type et les données spécifiques caméra.",
-    "V1.1: profils MEDIA centralisés + Blackmagic ajoutées à la liste commune."
+    "V1.1: profils MEDIA centralisés + Blackmagic ajoutées à la liste commune.",
+    "V1.5 : ajout des profils Blackmagic Video / Extended Video / Film par modèle. Pocket 4K/6K et URSA 12K utilisent Film Gen 5 ; URSA Mini Pro 4.6K G2 reste Film Gen 4. Les ISO natifs sont partagés entre ces rendus."
   ]
 }

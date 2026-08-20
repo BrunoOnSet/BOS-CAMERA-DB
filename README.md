@@ -1,16 +1,25 @@
-# BOS CAMERA DB V1.4
+# BOS CAMERA DB V1.5
 
-Mise à jour du 19 août 2026.
+Mise à jour du 20 août 2026.
 
-## Ajout Sony α7S III
+## Profils Blackmagic
 
-- Capteur : Full Frame 35,6 × 23,8 mm.
-- MEDIA : XAVC S-I / XAVC S / XAVC HS en UHD 4K, XAVC S-I / XAVC S en HD, plus DCI 4K 24.00p via licence/firmware compatible.
-- S-Log3 : ISO 640 est la limite basse standard publiée par Sony. ISO 12800 est conservé comme repère opérationnel de bascule haute sensibilité BOS/EXPO, sans le présenter comme un second Base ISO Cine EI officiellement publié pour l’α7S III.
-- S-Cinetone : repères BOS/EXPO 100 / 2000 ISO, avec le même statut de repères opérationnels que pour la FX3.
+Ajout des choix de rendu / Dynamic Range dans le bloc `exposure` des caméras Blackmagic :
 
-## Différence importante avec la FX3
+- **Pocket Cinema Camera 4K** : Video / Extended Video / Film Gen 5 — Dual Native ISO 400 / 3200.
+- **Pocket Cinema Camera 6K** : Video / Extended Video / Film Gen 5 — Dual Native ISO 400 / 3200.
+- **URSA Mini Pro 12K** : Video / Extended Video / Film Gen 5 — ISO natif de référence 800.
+- **URSA Mini Pro 4.6K G2** : Video / Extended Video / Film — ISO natif de référence 800. Le profil Film est conservé en **Gen 4** dans BOS, et n’est pas présenté comme Film Gen 5 natif.
 
-La FX3 dispose d’un mode Cine EI dans lequel Sony documente explicitement deux Base ISO : 800 / 12800. L’α7S III fonctionne en Log/Flexible ISO et Sony documente une limite basse standard de 640 ISO en S-Log3 ; il ne faut donc pas recopier simplement le couple 800 / 12800 de la FX3.
+## Principe de la DB
 
-Toutes les données de la V1.3 sont conservées.
+`Video`, `Extended Video` et `Film` décrivent le rendu / la plage dynamique. Ils ne créent pas de nouveaux ISO natifs. La propriété `profileSensitivityRelationship: "sharedNativeISO"` indique donc que les profils d’une même caméra partagent les mêmes sensibilités natives.
+
+Le profil par défaut reste **Film Gen 5** pour Pocket 4K/6K et URSA 12K, et **Film** pour URSA Mini Pro 4.6K G2.
+
+Toutes les données de la V1.4, dont le Sony α7S III, sont conservées.
+
+## Sources Blackmagic
+
+- Blackmagic Pocket Cinema Camera – manuel et documentation constructeur.
+- Blackmagic URSA Mini – manuel et documentation constructeur.
