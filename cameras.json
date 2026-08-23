@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "databaseVersion": "1.6",
-  "updated": "2026-08-20",
+  "databaseVersion": "1.7",
+  "updated": "2026-08-23",
   "cameras": [
     {
       "id": "fx30",
@@ -126,7 +126,185 @@
             },
             "sources": [
               "https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000888939.html"
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "S-LOG3",
+              "signalUnit": "percent",
+              "middleGrayPercent": 40.64,
+              "manufacturerRoundedMiddleGrayPercent": 41.0,
+              "stopTable": [
+                {
+                  "stop": -8.0,
+                  "percent": 4.08
+                },
+                {
+                  "stop": -7.0,
+                  "percent": 4.63
+                },
+                {
+                  "stop": -6.0,
+                  "percent": 5.71
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 7.89
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 12.24
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 17.75
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 24.57
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 32.32
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 40.64
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 49.28
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 58.09
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 66.99
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 75.93
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 84.89
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 93.87
+                }
+              ],
+              "stopTableMeaning": "curveEncodingOnly",
+              "referenceStopRange": [
+                -8.0,
+                6.0
+              ],
+              "referenceStopRangeNote": "Plage de lecture de courbe. Elle ne constitue pas une mesure du plancher de bruit ni de la dynamique capteur.",
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 12.24,
+                  "label": "PIED / TRÈS BASSES",
+                  "title": "Pied de courbe",
+                  "text": "Sous −4 stops du gris 18 %, S-Log3 est dans sa portion linéaire basse."
+                },
+                {
+                  "min": 12.24,
+                  "max": 32.32,
+                  "label": "OMBRES LOG",
+                  "title": "Ombres",
+                  "text": "Portion logarithmique sous le gris moyen."
+                },
+                {
+                  "min": 32.32,
+                  "max": 66.99,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 66.99,
+                  "max": 84.89,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Hautes lumières dans la portion logarithmique."
+                },
+                {
+                  "min": 84.89,
+                  "max": 93.87,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Approche du repère +6 stops / gris."
+                },
+                {
+                  "min": 93.87,
+                  "max": 100.01,
+                  "label": "AU-DELÀ DU REPÈRE +6",
+                  "title": "Au-delà du repère +6",
+                  "text": "La formule S-Log3 continue, mais ce secteur ne doit pas être assimilé à une latitude capteur garantie."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 12.24,
+                  "label": "12.2 %",
+                  "sub": "−4 stops / gris · seuil de la portion log"
+                },
+                {
+                  "value": 40.64,
+                  "label": "40.6 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 60.95,
+                  "label": "≈61 %",
+                  "sub": "blanc 90 %"
+                },
+                {
+                  "value": 93.87,
+                  "label": "93.9 %",
+                  "sub": "+6 stops / gris"
+                }
+              ],
+              "note": "Positions stop↔signal calculées uniquement avec la formule S-Log3 publiée par Sony. Elles décrivent la courbe, pas la dynamique totale du capteur.",
+              "refNote": "Sony publie le gris 18 % S-Log3 à environ 41 % et le blanc 90 % à environ 61 %.",
+              "accuracy": "manufacturerFormulaDerived",
+              "sources": [
+                "https://download.pro.sony/FNGP/protein/1237494271390/1237494271406.pdf",
+                "https://helpguide.sony.net/di/pp/v1/en/contents/TP0000909109.html"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerSpecification",
+                "inputCurve": "Sony S-Log3",
+                "method": "Formule officielle Sony évaluée à 18 % × 2^stop, puis convertie en pourcentage waveform/IRE.",
+                "noSensorExtrapolation": true
+              }
+            },
+            "dynamicRangeReference": {
+              "condition": "S-Log3 · Base ISO / EI de base",
+              "totalStopsMinimum": 14.0,
+              "qualifier": "plus",
+              "nativeReferences": [
+                {
+                  "iso": 800,
+                  "ei": 800,
+                  "aboveMiddleGrayStops": 6.0
+                },
+                {
+                  "iso": 2500,
+                  "ei": 2500,
+                  "aboveMiddleGrayStops": 6.0
+                }
+              ],
+              "belowMiddleGrayStops": null,
+              "note": "Sony publie 14+ stops de latitude. Le 6.0E au-dessus du gris est explicitement affiché à l'EI égal à chaque Base ISO. La latitude basse n'est pas déduite de 14+.",
+              "sources": [
+                "https://www.sony.com/electronics/support/e-mount-body-ilme-fx-series/ilme-fx30/specifications",
+                "https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000888857.html"
+              ],
+              "accuracy": "manufacturerPublished"
+            }
           },
           "scinetone": {
             "label": "S-Cinetone",
@@ -277,7 +455,185 @@
             },
             "sources": [
               "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000888939.html"
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "S-LOG3",
+              "signalUnit": "percent",
+              "middleGrayPercent": 40.64,
+              "manufacturerRoundedMiddleGrayPercent": 41.0,
+              "stopTable": [
+                {
+                  "stop": -8.0,
+                  "percent": 4.08
+                },
+                {
+                  "stop": -7.0,
+                  "percent": 4.63
+                },
+                {
+                  "stop": -6.0,
+                  "percent": 5.71
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 7.89
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 12.24
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 17.75
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 24.57
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 32.32
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 40.64
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 49.28
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 58.09
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 66.99
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 75.93
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 84.89
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 93.87
+                }
+              ],
+              "stopTableMeaning": "curveEncodingOnly",
+              "referenceStopRange": [
+                -8.0,
+                6.0
+              ],
+              "referenceStopRangeNote": "Plage de lecture de courbe. Elle ne constitue pas une mesure du plancher de bruit ni de la dynamique capteur.",
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 12.24,
+                  "label": "PIED / TRÈS BASSES",
+                  "title": "Pied de courbe",
+                  "text": "Sous −4 stops du gris 18 %, S-Log3 est dans sa portion linéaire basse."
+                },
+                {
+                  "min": 12.24,
+                  "max": 32.32,
+                  "label": "OMBRES LOG",
+                  "title": "Ombres",
+                  "text": "Portion logarithmique sous le gris moyen."
+                },
+                {
+                  "min": 32.32,
+                  "max": 66.99,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 66.99,
+                  "max": 84.89,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Hautes lumières dans la portion logarithmique."
+                },
+                {
+                  "min": 84.89,
+                  "max": 93.87,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Approche du repère +6 stops / gris."
+                },
+                {
+                  "min": 93.87,
+                  "max": 100.01,
+                  "label": "AU-DELÀ DU REPÈRE +6",
+                  "title": "Au-delà du repère +6",
+                  "text": "La formule S-Log3 continue, mais ce secteur ne doit pas être assimilé à une latitude capteur garantie."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 12.24,
+                  "label": "12.2 %",
+                  "sub": "−4 stops / gris · seuil de la portion log"
+                },
+                {
+                  "value": 40.64,
+                  "label": "40.6 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 60.95,
+                  "label": "≈61 %",
+                  "sub": "blanc 90 %"
+                },
+                {
+                  "value": 93.87,
+                  "label": "93.9 %",
+                  "sub": "+6 stops / gris"
+                }
+              ],
+              "note": "Positions stop↔signal calculées uniquement avec la formule S-Log3 publiée par Sony. Elles décrivent la courbe, pas la dynamique totale du capteur.",
+              "refNote": "Sony publie le gris 18 % S-Log3 à environ 41 % et le blanc 90 % à environ 61 %.",
+              "accuracy": "manufacturerFormulaDerived",
+              "sources": [
+                "https://download.pro.sony/FNGP/protein/1237494271390/1237494271406.pdf",
+                "https://helpguide.sony.net/di/pp/v1/en/contents/TP0000909109.html"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerSpecification",
+                "inputCurve": "Sony S-Log3",
+                "method": "Formule officielle Sony évaluée à 18 % × 2^stop, puis convertie en pourcentage waveform/IRE.",
+                "noSensorExtrapolation": true
+              }
+            },
+            "dynamicRangeReference": {
+              "condition": "S-Log3 · Base ISO / EI de base",
+              "totalStopsMinimum": 15.0,
+              "qualifier": "plus",
+              "nativeReferences": [
+                {
+                  "iso": 800,
+                  "ei": 800,
+                  "aboveMiddleGrayStops": 6.0
+                },
+                {
+                  "iso": 12800,
+                  "ei": 12800,
+                  "aboveMiddleGrayStops": 6.0
+                }
+              ],
+              "belowMiddleGrayStops": null,
+              "note": "Sony publie 15+ stops. Le 6.0E au-dessus du gris est explicitement affiché à l'EI égal à chaque Base ISO. La latitude basse n'est pas déduite de 15+.",
+              "sources": [
+                "https://www.sony.com/en-dz/electronics/interchangeable-lens-cameras/ilme-fx3a/specifications",
+                "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000888852.html"
+              ],
+              "accuracy": "manufacturerPublished"
+            }
           },
           "scinetone": {
             "label": "S-Cinetone",
@@ -437,7 +793,190 @@
             ],
             "sources": [
               "https://helpguide.sony.net/ilc/2630/v1/en/contents/base_iso.html"
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "S-LOG3",
+              "signalUnit": "percent",
+              "middleGrayPercent": 40.64,
+              "manufacturerRoundedMiddleGrayPercent": 41.0,
+              "stopTable": [
+                {
+                  "stop": -8.0,
+                  "percent": 4.08
+                },
+                {
+                  "stop": -7.0,
+                  "percent": 4.63
+                },
+                {
+                  "stop": -6.0,
+                  "percent": 5.71
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 7.89
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 12.24
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 17.75
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 24.57
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 32.32
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 40.64
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 49.28
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 58.09
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 66.99
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 75.93
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 84.89
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 93.87
+                }
+              ],
+              "stopTableMeaning": "curveEncodingOnly",
+              "referenceStopRange": [
+                -8.0,
+                6.0
+              ],
+              "referenceStopRangeNote": "Plage de lecture de courbe. Elle ne constitue pas une mesure du plancher de bruit ni de la dynamique capteur.",
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 12.24,
+                  "label": "PIED / TRÈS BASSES",
+                  "title": "Pied de courbe",
+                  "text": "Sous −4 stops du gris 18 %, S-Log3 est dans sa portion linéaire basse."
+                },
+                {
+                  "min": 12.24,
+                  "max": 32.32,
+                  "label": "OMBRES LOG",
+                  "title": "Ombres",
+                  "text": "Portion logarithmique sous le gris moyen."
+                },
+                {
+                  "min": 32.32,
+                  "max": 66.99,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 66.99,
+                  "max": 84.89,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Hautes lumières dans la portion logarithmique."
+                },
+                {
+                  "min": 84.89,
+                  "max": 93.87,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Approche du repère +6 stops / gris."
+                },
+                {
+                  "min": 93.87,
+                  "max": 100.01,
+                  "label": "AU-DELÀ DU REPÈRE +6",
+                  "title": "Au-delà du repère +6",
+                  "text": "La formule S-Log3 continue, mais ce secteur ne doit pas être assimilé à une latitude capteur garantie."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 12.24,
+                  "label": "12.2 %",
+                  "sub": "−4 stops / gris · seuil de la portion log"
+                },
+                {
+                  "value": 40.64,
+                  "label": "40.6 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 60.95,
+                  "label": "≈61 %",
+                  "sub": "blanc 90 %"
+                },
+                {
+                  "value": 93.87,
+                  "label": "93.9 %",
+                  "sub": "+6 stops / gris"
+                }
+              ],
+              "note": "Positions stop↔signal calculées uniquement avec la formule S-Log3 publiée par Sony. Elles décrivent la courbe, pas la dynamique totale du capteur.",
+              "refNote": "Sony publie le gris 18 % S-Log3 à environ 41 % et le blanc 90 % à environ 61 %.",
+              "accuracy": "manufacturerFormulaDerived",
+              "sources": [
+                "https://download.pro.sony/FNGP/protein/1237494271390/1237494271406.pdf",
+                "https://helpguide.sony.net/di/pp/v1/en/contents/TP0000909109.html"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerSpecification",
+                "inputCurve": "Sony S-Log3",
+                "method": "Formule officielle Sony évaluée à 18 % × 2^stop, puis convertie en pourcentage waveform/IRE.",
+                "noSensorExtrapolation": true
+              }
+            },
+            "dynamicRangeReference": {
+              "condition": "S-Log3 · Base ISO / EI de base",
+              "totalStopsMinimum": 15.0,
+              "qualifier": "plus",
+              "nativeReferences": [
+                {
+                  "iso": 800,
+                  "ei": 800,
+                  "aboveMiddleGrayStops": 6.0
+                },
+                {
+                  "iso": 4000,
+                  "ei": 4000,
+                  "aboveMiddleGrayStops": 6.0
+                },
+                {
+                  "iso": 12800,
+                  "ei": 12800,
+                  "aboveMiddleGrayStops": 6.0
+                }
+              ],
+              "belowMiddleGrayStops": null,
+              "note": "Sony publie 15+ stops. Le menu constructeur donne 6.0E quand l'EI correspond à chacune des Base ISO 800 / 4000 / 12800. La latitude basse n'est pas déduite de 15+.",
+              "sources": [
+                "https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx5/specifications",
+                "https://helpguide.sony.net/ilc/2630/v1/en/contents/shooting.html"
+              ],
+              "accuracy": "manufacturerPublished"
+            }
           },
           "scinetone": {
             "label": "S-Cinetone",
@@ -592,7 +1131,180 @@
             },
             "sources": [
               "https://pro.sony/bp_BR/products/handheld-camcorders/ilme-fx6"
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "S-LOG3",
+              "signalUnit": "percent",
+              "middleGrayPercent": 40.64,
+              "manufacturerRoundedMiddleGrayPercent": 41.0,
+              "stopTable": [
+                {
+                  "stop": -8.0,
+                  "percent": 4.08
+                },
+                {
+                  "stop": -7.0,
+                  "percent": 4.63
+                },
+                {
+                  "stop": -6.0,
+                  "percent": 5.71
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 7.89
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 12.24
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 17.75
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 24.57
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 32.32
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 40.64
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 49.28
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 58.09
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 66.99
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 75.93
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 84.89
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 93.87
+                }
+              ],
+              "stopTableMeaning": "curveEncodingOnly",
+              "referenceStopRange": [
+                -8.0,
+                6.0
+              ],
+              "referenceStopRangeNote": "Plage de lecture de courbe. Elle ne constitue pas une mesure du plancher de bruit ni de la dynamique capteur.",
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 12.24,
+                  "label": "PIED / TRÈS BASSES",
+                  "title": "Pied de courbe",
+                  "text": "Sous −4 stops du gris 18 %, S-Log3 est dans sa portion linéaire basse."
+                },
+                {
+                  "min": 12.24,
+                  "max": 32.32,
+                  "label": "OMBRES LOG",
+                  "title": "Ombres",
+                  "text": "Portion logarithmique sous le gris moyen."
+                },
+                {
+                  "min": 32.32,
+                  "max": 66.99,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 66.99,
+                  "max": 84.89,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Hautes lumières dans la portion logarithmique."
+                },
+                {
+                  "min": 84.89,
+                  "max": 93.87,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Approche du repère +6 stops / gris."
+                },
+                {
+                  "min": 93.87,
+                  "max": 100.01,
+                  "label": "AU-DELÀ DU REPÈRE +6",
+                  "title": "Au-delà du repère +6",
+                  "text": "La formule S-Log3 continue, mais ce secteur ne doit pas être assimilé à une latitude capteur garantie."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 12.24,
+                  "label": "12.2 %",
+                  "sub": "−4 stops / gris · seuil de la portion log"
+                },
+                {
+                  "value": 40.64,
+                  "label": "40.6 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 60.95,
+                  "label": "≈61 %",
+                  "sub": "blanc 90 %"
+                },
+                {
+                  "value": 93.87,
+                  "label": "93.9 %",
+                  "sub": "+6 stops / gris"
+                }
+              ],
+              "note": "Positions stop↔signal calculées uniquement avec la formule S-Log3 publiée par Sony. Elles décrivent la courbe, pas la dynamique totale du capteur.",
+              "refNote": "Sony publie le gris 18 % S-Log3 à environ 41 % et le blanc 90 % à environ 61 %.",
+              "accuracy": "manufacturerFormulaDerived",
+              "sources": [
+                "https://download.pro.sony/FNGP/protein/1237494271390/1237494271406.pdf",
+                "https://helpguide.sony.net/di/pp/v1/en/contents/TP0000909109.html"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerSpecification",
+                "inputCurve": "Sony S-Log3",
+                "method": "Formule officielle Sony évaluée à 18 % × 2^stop, puis convertie en pourcentage waveform/IRE.",
+                "noSensorExtrapolation": true
+              }
+            },
+            "dynamicRangeReference": {
+              "condition": "S-Log3 · Base ISO",
+              "totalStopsMinimum": 15.0,
+              "qualifier": "plus",
+              "nativeReferences": [
+                {
+                  "iso": 800
+                },
+                {
+                  "iso": 12800
+                }
+              ],
+              "note": "Sony publie 15+ stops et deux Base ISO 800 / 12800. Aucune répartition ombres/hautes n'est ajoutée ici sans source constructeur explicite associée à ces deux bases.",
+              "sources": [
+                "https://electronics.sony.com/imaging/cinema-line-cameras/all-cinema-line-cameras/p/ilmefx6v",
+                "https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx6v/articles/00253976"
+              ],
+              "accuracy": "manufacturerPublished"
+            }
           },
           "scinetone": {
             "label": "S-Cinetone",
@@ -742,7 +1454,161 @@
             ],
             "operationalGainSwitchValues": [
               12800
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "S-LOG3",
+              "signalUnit": "percent",
+              "middleGrayPercent": 40.64,
+              "manufacturerRoundedMiddleGrayPercent": 41.0,
+              "stopTable": [
+                {
+                  "stop": -8.0,
+                  "percent": 4.08
+                },
+                {
+                  "stop": -7.0,
+                  "percent": 4.63
+                },
+                {
+                  "stop": -6.0,
+                  "percent": 5.71
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 7.89
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 12.24
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 17.75
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 24.57
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 32.32
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 40.64
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 49.28
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 58.09
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 66.99
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 75.93
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 84.89
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 93.87
+                }
+              ],
+              "stopTableMeaning": "curveEncodingOnly",
+              "referenceStopRange": [
+                -8.0,
+                6.0
+              ],
+              "referenceStopRangeNote": "Plage de lecture de courbe. Elle ne constitue pas une mesure du plancher de bruit ni de la dynamique capteur.",
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 12.24,
+                  "label": "PIED / TRÈS BASSES",
+                  "title": "Pied de courbe",
+                  "text": "Sous −4 stops du gris 18 %, S-Log3 est dans sa portion linéaire basse."
+                },
+                {
+                  "min": 12.24,
+                  "max": 32.32,
+                  "label": "OMBRES LOG",
+                  "title": "Ombres",
+                  "text": "Portion logarithmique sous le gris moyen."
+                },
+                {
+                  "min": 32.32,
+                  "max": 66.99,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 66.99,
+                  "max": 84.89,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Hautes lumières dans la portion logarithmique."
+                },
+                {
+                  "min": 84.89,
+                  "max": 93.87,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Approche du repère +6 stops / gris."
+                },
+                {
+                  "min": 93.87,
+                  "max": 100.01,
+                  "label": "AU-DELÀ DU REPÈRE +6",
+                  "title": "Au-delà du repère +6",
+                  "text": "La formule S-Log3 continue, mais ce secteur ne doit pas être assimilé à une latitude capteur garantie."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 12.24,
+                  "label": "12.2 %",
+                  "sub": "−4 stops / gris · seuil de la portion log"
+                },
+                {
+                  "value": 40.64,
+                  "label": "40.6 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 60.95,
+                  "label": "≈61 %",
+                  "sub": "blanc 90 %"
+                },
+                {
+                  "value": 93.87,
+                  "label": "93.9 %",
+                  "sub": "+6 stops / gris"
+                }
+              ],
+              "note": "Positions stop↔signal calculées uniquement avec la formule S-Log3 publiée par Sony. Elles décrivent la courbe, pas la dynamique totale du capteur.",
+              "refNote": "Sony publie le gris 18 % S-Log3 à environ 41 % et le blanc 90 % à environ 61 %.",
+              "accuracy": "manufacturerFormulaDerived",
+              "sources": [
+                "https://download.pro.sony/FNGP/protein/1237494271390/1237494271406.pdf",
+                "https://helpguide.sony.net/di/pp/v1/en/contents/TP0000909109.html"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerSpecification",
+                "inputCurve": "Sony S-Log3",
+                "method": "Formule officielle Sony évaluée à 18 % × 2^stop, puis convertie en pourcentage waveform/IRE.",
+                "noSensorExtrapolation": true
+              }
+            }
           },
           "scinetone": {
             "label": "S-Cinetone",
@@ -928,7 +1794,164 @@
             },
             "sources": [
               "https://www.arri.com/en/cine-systems/cine-cameras/alexa-mini-lf"
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "LOG C3 · EI 800",
+              "signalUnit": "percent",
+              "middleGrayPercent": 39.1,
+              "stopTable": [
+                {
+                  "stop": -6.0,
+                  "percent": 10.79
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 12.3
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 15.31
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 19.98
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 25.71
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 32.18
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 39.1
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 46.27
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 53.58
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 60.95
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 68.35
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 75.78
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 83.21
+                },
+                {
+                  "stop": 7.0,
+                  "percent": 90.65
+                }
+              ],
+              "stopTableMeaning": "curveEncodingAtReferenceEI",
+              "referenceEI": 800,
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 10.79,
+                  "label": "TRÈS BASSES",
+                  "title": "Très basses lumières",
+                  "text": "Sous le premier stop entier inclus dans la latitude EI 800."
+                },
+                {
+                  "min": 10.79,
+                  "max": 32.18,
+                  "label": "OMBRES",
+                  "title": "Ombres",
+                  "text": "Portion LogC3 sous le gris moyen."
+                },
+                {
+                  "min": 32.18,
+                  "max": 60.95,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 60.95,
+                  "max": 83.21,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Zone haute de LogC3 à EI 800."
+                },
+                {
+                  "min": 83.21,
+                  "max": 95.39,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Dernière portion avant le niveau de clipping LogC3 publié pour EI 800."
+                },
+                {
+                  "min": 95.39,
+                  "max": 100.01,
+                  "label": "AU-DELÀ CLIP EI800",
+                  "title": "Au-delà du clipping EI 800",
+                  "text": "Au-dessus du niveau de clipping LogC3 publié pour EI 800."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 10.79,
+                  "label": "10,79 %",
+                  "sub": "−6 stops"
+                },
+                {
+                  "value": 39.1,
+                  "label": "39,10 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 83.21,
+                  "label": "83,21 %",
+                  "sub": "+6 stops"
+                },
+                {
+                  "value": 95.39,
+                  "label": "95,39 %",
+                  "sub": "clipping LogC3 EI 800"
+                }
+              ],
+              "note": "Table stop↔IRE issue du tableau constructeur ARRI à EI 800. La relation LogC3 varie légèrement avec l'EI.",
+              "refNote": "ARRI publie le gris moyen LogC3 à 39 % et un clipping LogC3 de 0,9539 à EI 800.",
+              "accuracy": "manufacturerTable",
+              "sources": [
+                "https://www.arri.com/resource/blob/295460/e10ff8a5b3abf26c33f8754379b57442/2022-09-28-arri-dynamic-range-whitepaper-data.pdf",
+                "https://www.arri.com/resource/blob/31918/66f56e6abb6e5b6553929edf9aa7483e/2017-03-alexa-logc-curve-in-vfx-data.pdf"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerTable",
+                "method": "Sous-ensemble entier du tableau ARRI Dynamic Range White Paper, Table 5, LogC3 EI 800.",
+                "noExtrapolation": true
+              }
+            },
+            "dynamicRangeReference": {
+              "condition": "EI 800 · ALEV-3",
+              "ei": 800,
+              "totalStops": 14.5,
+              "belowMiddleGrayStops": 6.9,
+              "aboveMiddleGrayStops": 7.6,
+              "sensorSaturationSignalPercent": 95.39,
+              "note": "Valeurs ARRI publiées pour les caméras ALEV-3, dont ALEXA Mini LF. La somme 6,9 + 7,6 = 14,5 stops.",
+              "sources": [
+                "https://www.arri.com/resource/blob/295460/e10ff8a5b3abf26c33f8754379b57442/2022-09-28-arri-dynamic-range-whitepaper-data.pdf"
+              ],
+              "accuracy": "manufacturerMeasured"
+            }
           }
         }
       }
@@ -1100,7 +2123,175 @@
             "sources": [
               "https://www.arri.com/en/cine-systems/cine-cameras/legacy-cine-cameras/alexa-35",
               "https://www.arri.com/en/learn-help/learn-help-camera-system/image-science/hdr-faq"
-            ]
+            ],
+            "waveformGuide": {
+              "kind": "logCurve",
+              "status": "LOG C4",
+              "signalUnit": "percent",
+              "middleGrayPercent": 27.84,
+              "stopTable": [
+                {
+                  "stop": -7.0,
+                  "percent": 9.73
+                },
+                {
+                  "stop": -6.0,
+                  "percent": 10.16
+                },
+                {
+                  "stop": -5.0,
+                  "percent": 10.96
+                },
+                {
+                  "stop": -4.0,
+                  "percent": 12.38
+                },
+                {
+                  "stop": -3.0,
+                  "percent": 14.7
+                },
+                {
+                  "stop": -2.0,
+                  "percent": 18.11
+                },
+                {
+                  "stop": -1.0,
+                  "percent": 22.56
+                },
+                {
+                  "stop": 0.0,
+                  "percent": 27.84
+                },
+                {
+                  "stop": 1.0,
+                  "percent": 33.65
+                },
+                {
+                  "stop": 2.0,
+                  "percent": 39.78
+                },
+                {
+                  "stop": 3.0,
+                  "percent": 46.08
+                },
+                {
+                  "stop": 4.0,
+                  "percent": 52.47
+                },
+                {
+                  "stop": 5.0,
+                  "percent": 58.9
+                },
+                {
+                  "stop": 6.0,
+                  "percent": 65.36
+                },
+                {
+                  "stop": 7.0,
+                  "percent": 71.83
+                },
+                {
+                  "stop": 8.0,
+                  "percent": 78.3
+                },
+                {
+                  "stop": 9.0,
+                  "percent": 84.78
+                }
+              ],
+              "stopTableMeaning": "curveEncoding",
+              "curveEIIndependent": true,
+              "zones": [
+                {
+                  "min": 0.0,
+                  "max": 22.56,
+                  "label": "OMBRES / BASSES",
+                  "title": "Ombres et basses lumières",
+                  "text": "Portion LogC4 sous le gris moyen."
+                },
+                {
+                  "min": 22.56,
+                  "max": 46.08,
+                  "label": "MÉDIUMS",
+                  "title": "Médiums",
+                  "text": "Zone centrale autour du gris 18 %."
+                },
+                {
+                  "min": 46.08,
+                  "max": 65.36,
+                  "label": "HAUTES",
+                  "title": "Hautes lumières",
+                  "text": "Zone haute de LogC4."
+                },
+                {
+                  "min": 65.36,
+                  "max": 86.72,
+                  "label": "TRÈS HAUTES",
+                  "title": "Très hautes lumières",
+                  "text": "Partie de LogC4 comprise dans la latitude haute ALEXA 35 à EI 800."
+                },
+                {
+                  "min": 86.72,
+                  "max": 100.01,
+                  "label": "AU-DELÀ EI800",
+                  "title": "Au-delà de la latitude EI 800",
+                  "text": "La courbe LogC4 possède encore de l'espace d'encodage, mais le capteur ALEXA 35 à EI 800 a déjà atteint sa limite de latitude publiée."
+                }
+              ],
+              "markers": [
+                {
+                  "value": 27.84,
+                  "label": "27.84 %",
+                  "sub": "gris 18 %"
+                },
+                {
+                  "value": 33.65,
+                  "label": "33,65 %",
+                  "sub": "+1 stop"
+                },
+                {
+                  "value": 65.36,
+                  "label": "65.36 %",
+                  "sub": "+6 stops"
+                },
+                {
+                  "value": 84.78,
+                  "label": "84.78 %",
+                  "sub": "+9 stops"
+                },
+                {
+                  "value": 86.72,
+                  "label": "≈86.7 %",
+                  "sub": "+9,3 stops · latitude EI 800"
+                }
+              ],
+              "note": "Positions stop↔signal calculées uniquement avec la formule LogC4 publiée par ARRI. La courbe LogC4 est indépendante de l'EI.",
+              "refNote": "ARRI publie le gris moyen LogC4 à environ 28 %.",
+              "accuracy": "manufacturerFormulaDerived",
+              "sources": [
+                "https://www.arri.com/resource/blob/278790/bea879ac0d041a925bed27a096ab3ec2/2022-05-arri-logc4-specification-data.pdf",
+                "https://www.arri.com/resource/blob/295460/e10ff8a5b3abf26c33f8754379b57442/2022-09-28-arri-dynamic-range-whitepaper-data.pdf"
+              ],
+              "provenance": {
+                "sourceType": "manufacturerSpecification",
+                "method": "Formule LogC4 officielle évaluée à 18 % × 2^stop.",
+                "noExtrapolation": true
+              }
+            },
+            "dynamicRangeReference": {
+              "condition": "EI 800 · ALEV-4 · Texture K445 Default · Enhanced Sensitivity OFF",
+              "ei": 800,
+              "totalStops": 17.0,
+              "belowMiddleGrayStops": 7.7,
+              "aboveMiddleGrayStops": 9.3,
+              "sensorSaturationSignalPercent": 86.72,
+              "note": "ARRI publie 17 stops pour ALEXA 35. À EI 800 : 7,7 sous le gris et 9,3 au-dessus. La mesure de référence utilise K445 Default sans Enhanced Sensitivity.",
+              "sources": [
+                "https://www.arri.com/resource/blob/295460/e10ff8a5b3abf26c33f8754379b57442/2022-09-28-arri-dynamic-range-whitepaper-data.pdf",
+                "https://www.arri.com/resource/blob/278790/bea879ac0d041a925bed27a096ab3ec2/2022-05-arri-logc4-specification-data.pdf"
+              ],
+              "accuracy": "manufacturerMeasured"
+            }
           }
         }
       }
@@ -3652,6 +4843,13 @@
     }
   ],
   "notes": [
+    "V1.7 : politique de rigueur ajoutée : waveformGuide = courbe/rendu, dynamicRangeReference = dynamique capteur constructeur séparée.",
+    "V1.7 : Sony S-Log3 ajouté depuis la formule officielle Sony. StopTable -8 à +6 = repères de courbe, jamais une limite capteur.",
+    "V1.7 : FX30 = 14+ stops constructeur ; FX3/FX5/FX6 = 15+ stops constructeur. Les répartitions basses ne sont jamais déduites d'un total marqué '+'.",
+    "V1.7 : FX30/FX3/FX5 : 6.0E au-dessus du gris à l'EI égal à la Base ISO, uniquement là où Sony le publie explicitement.",
+    "V1.7 : ALEXA Mini LF / LogC3 EI800 = 14,5 stops, -6,9 / +7,6 constructeur ; stopTable issue du tableau ARRI.",
+    "V1.7 : ALEXA 35 / LogC4 EI800 = 17 stops, -7,7 / +9,3 constructeur ; stopTable issue de la formule LogC4 officielle.",
+    "V1.7 : données Blackmagic V1.6 conservées telles quelles ; les guides Gen 5 restent formule/LUT constructeur, la 4.6K Gen 4 reste explicitement approximative.",
     "V1.4 : ajout de la Sony α7S III (DOF, MEDIA et exposition).",
     "α7S III : S-Log3 distingue la limite basse standard Sony ISO 640 du repère opérationnel haute sensibilité BOS/EXPO ISO 12800 ; ne pas assimiler ce couple au sélecteur Base ISO 800/12800 Cine EI de la FX3.",
     "α7S III : S-Cinetone 100/2000 conservé comme repère opérationnel BOS/EXPO, pas comme couple de Base ISO Cine EI publié par Sony.",
@@ -3666,5 +4864,13 @@
     "V1.6 : ajout des waveformGuide Blackmagic pour Video, Extended Video et Film (Gen 5 ou Gen 4 selon le modèle).",
     "Les guides Video/Extended Video sont dérivés des LUT .cube Blackmagic fournies ; les fichiers LUT eux-mêmes ne sont pas redistribués dans la DB.",
     "URSA Mini Pro 4.6K G2 : la transformation LUT v4 est exacte sur l’axe neutre, mais les repères stops Film 4.6K historiques sont marqués approximatifs."
-  ]
+  ],
+  "dataPolicy": {
+    "exposureReference": "manufacturerNativeOrBaseSensitivity",
+    "waveformRule": "waveformGuide décrit l'encodage de la courbe / du rendu, pas la dynamique totale du capteur.",
+    "dynamicRangeRule": "dynamicRangeReference n'est renseigné que lorsqu'une source constructeur publie explicitement la valeur. Les valeurs manquantes ne sont pas déduites.",
+    "derivationRule": "Les stopTable peuvent être calculées uniquement à partir d'une formule constructeur ou d'une LUT constructeur identifiée. Aucune extrapolation capteur n'est autorisée.",
+    "displayRule": "Un nombre de traits/stops dans waveformGuide ne doit jamais être présenté comme la dynamique totale de la caméra.",
+    "referenceCondition": "Quand une répartition de latitude est renseignée, elle correspond à l'ISO/EI natif ou de base indiqué."
+  }
 }
